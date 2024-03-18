@@ -6,7 +6,7 @@
 <body>
 	<div class="row  background-primary">
 		<div class="sm-12 md-4 col sidebar">
-			<div class="paper container margin-bottom-large">
+			<div class="paper container margin-bottom-large" style="height: 100vh;">
 				<h2>MemoBuddy</h2>
 				<p>重要</p>
 				<hr>
@@ -14,13 +14,20 @@
 			  </div>
 		</div>
 		<div class="sm-12 md-8 col">
-			<div class="paper container margin-bottom-large"></div>
 			<div class="paper container margin-bottom-large">
-				<div class="form-group">
-					<label for="large-input">Large Input</label>
-					<textarea id="large-input" placeholder="Large input"></textarea>
-				  </div>
+				<form action="write" method="POST">
+					<div class="form-group">
+						<label for="large-input">Large Input</label>
+						<textarea name="memo" id="large-input" style="width:100%" placeholder="Large input"></textarea>
+						<div class="row">
+							<div class="col-12 col">
+								<button type="submit" class="btn-block">Block level</button>
+							</div>
+						</div>
+					</div>	
+				</form>
 			</div>
+			<div class="paper container margin-bottom-large"></div>
 		</div>
 	</div>
 </body>
