@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<section class="hero is-dark">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title">Bookinger</h1>
+			<h2 class="subtitle is-6">「予約管理システム」になりたいもの
+			</h2>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="container">
+		<div class="content">
+			<a href="/booking" class="button is-primary">新規作成</a>
+		</div>
+
+		<div class="content">
+			<div class="table-container">
+				<table class="table is-fullwidth">
+					<tr>
+						<th class="is-primary">部屋</th>
+						<td>00/01</td>
+						<td>00/02</td>
+						<td>00/03</td>
+						<td>00/04</td>
+						<td>00/05</td>
+						<td>00/06</td>
+						<td>00/07</td>
+					</tr>
+					{% for room in rooms %}
+						<tr>
+							<th class="is-primary">{{ room[0] }}</th>
+							{% for idx in range(1, room|length ) %}
+								<td><a href="#">{{ room[idx] }}</a></td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	<div>
+</section>
+
+<footer class="footer">
+	<div class="content has-text-centered">
+		<p> @natu7925s </p>
+	</div>
+</footer>
+{% endblock %}

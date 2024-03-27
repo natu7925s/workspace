@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<section class="hero is-dark">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title">Bookinger</h1>
+			<h2 class="subtitle is-6">「予約管理システム」になりたいもの
+			</h2>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="container">
+		<form method="post" action="/booking/new">
+			<div class="field">
+				<label class="label">部屋選択</label>
+				<p class="control has-icons-left">
+				  <span class="select">
+					<select>
+						<option selected>{{ rooms[0].name }}</option>
+						{% for idx in range(1, rooms|length) %}
+							<option>{{ rooms[idx].name }}</option>
+						{% endfor %}
+					</select>
+				  </span>
+				  <span class="icon is-small is-left">
+					<i class="fas fa-globe"></i>
+				  </span>
+				</p>
+			  </div>
+			<p><input type="submit" value="送信する"></p>
+			<input type="reset" value="取消する">
+		</form>
+	<div>
+</section>
+
+<footer class="footer">
+	<div class="content has-text-centered">
+		<p> @natu7925s </p>
+	</div>
+</footer>
+{% endblock %}

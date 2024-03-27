@@ -1,8 +1,10 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import redirect
 
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import desc
 
 import secrets
 import datetime
@@ -25,8 +27,6 @@ def write():
 	if request.method == "POST":
 		memo_a = request.form.get("memo")
 		dt_now = datetime.datetime.now(dt_jst).strftime('%Y-%m-%d %H:%M:%S')
-		print(memo_a)
-		print(dt_now)
 		if memo_a != "":	
 			memo = Memo(
 				memo=memo_a,
@@ -38,7 +38,9 @@ def write():
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-	return render_template("index.html")
+	memos = Memo.query.order_by(desc(Memo.post_time)).all()
+	print(memos)
+	return render_template("index.html", memos=memos)
 
 if __name__ == "__main__":
 	app.run(debug=True, host='0.0.0.0', port=32500)
