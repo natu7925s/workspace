@@ -1,0 +1,19 @@
+<!-- メモ入力ページ -->
+{% extends 'base.html' %}
+{% block body %}
+<body>
+	<div class="paper container margin-bottom-large">
+		<form action="write" method="POST">
+			<div class="form-group">
+				<label for="large-input">Large Input</label>
+				<textarea name="memo" id="large-input" style="width:100%" placeholder="Large input"></textarea>
+				<div class="row">
+					<div class="col-12 col">
+						<button type="submit" class="btn-block">Block level</button>
+					</div>
+				</div>
+			</div>	
+		</form>
+	</div>
+</body>
+{% endblock %}

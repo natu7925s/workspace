@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+<body>
+	<div class="row  background-primary">
+		<div class="sm-12 md-4 col sidebar">
+			<div class="paper container margin-bottom-large" style="height: 100vh;">
+				<h2>MemoBuddy</h2>
+				<input type="button" style="width:100%" class="paper-btn btn-primary-outline" value="新規メモ"/>
+				<p></p>
+				<input type="button" style="width:100%" class="paper-btn btn-primary-outline" value="ラベル作成"/>
+				<h5>[ラベル]</h5>
+			</div>
+		</div>
+		<div class="sm-12 md-8 col">
+			<div class="paper container margin-bottom-large">
+				{% for memo in memos %}
+					<div class="paper container margin-bottom-large">
+						<p>{{memo.memo}}</p>
+						<table>
+							<tbody>
+								<tr>
+									<td>
+										<small>{{memo.post_time}}</small>
+									</td>
+									<td>
+										<p class="text-secondary"><small>edit</small></p>
+									</td>
+									<td>
+										<p class="text-danger"><small>delete</small></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</body>
+{% endblock %}
