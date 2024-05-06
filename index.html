@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="control mycenter">
+	<h1 class="has-text-weight-bold is-size-5" style="max-width: 80%; word-break: break-all; color: #f0f0f0"><b>専用のURLを作成しよう > (@w@)</b></h1>
+</div>
+<div class="control">
+	<form method="POST" action="/create">
+		<div class="buttons mycenter">
+			<button type="submit" class="button is-large is-success is-rounded">URLを作成する</button>
+		</div>
+	</form>
+</div>
+
+{% endblock%}

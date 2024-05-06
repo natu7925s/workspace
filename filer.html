@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+	<title>CloudFiler</title>
+
+	<style>
+
+		.mycenter {
+			display: flex;
+    		align-items: center;
+    		justify-content: center;
+		}
+		
+	</style>
+</head>
+<body>
+
+	<div class="control">
+		<form method="POST" action="/filer/{{ phash }}" enctype="multipart/form-data">
+			<div class="buttons is-vcentered is-centered">
+				<input type="file" class="button is-large is-success is-rounded" style="width: 80%;" multiple="multiple" name="upfiles" value="aaa" />	
+				<input type="submit" class="button is-large is-success is-rounded" style="width: 80%;" value="アップロード" />
+			</div>
+		</form>
+	</div>
+	<div>
+		
+	</div>
+	<div class="control mycenter">
+		<table class="table is-centered " style="width: 80%;">
+			<thead>
+				<tr>
+					<th>ファイル名</th>
+					<th>ファイル名</th>
+					<th>ファイル名</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for file in filelist %}
+					<tr>
+						<td><a href="/filer/{{ phash }}/{{ file[0] }}">{{ file[0] }}</a></td>
+						<td>{{ file[1] }}</td>
+						<td><a href="/filer/{{ phash }}/del/{{ file[0] }}">削除</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
