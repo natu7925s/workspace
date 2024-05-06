@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block body %}
+<main class="columns">
+	<div class="submenu column is-3">
+		<aside class="box menu">
+			<form method="GET" action="/list">
+				<div class="buttons">
+					<button class="button is-info is-fullwidth" >新規作成</button>
+				</div>
+			</form>
+			<p class="menu-label">
+				アイデア一覧
+			</p>
+
+			<!---->
+			<ul class="menu-list">
+				
+				{% for idea in ideas %}
+				<li><a href="/{{ idea.id }}">{{ idea.name }}</a></li>
+				{% endfor %}
+
+			</ul>
+			<!---->
+
+		</aside>
+	</div>
+	<div class="column">
+		<article class="media">
+			<div class="media-content">
+				<form method="POST" action="#">
+					<div class="field">
+						<p class="control">
+							<textarea class="textarea" name="tweet" placeholder="Add a comment..."></textarea>
+						</p>
+					</div>
+					<nav class="level">
+						<div class="level-left">
+							<div class="level-item">
+								<button type="submit" class="button is-info">Submit</button>	
+							</div>
+						</div>
+					</nav>
+				</form>
+			</div>
+		</article>
+
+		<!-- メイン投稿 -->
+		{% for tw in tweets %}
+			<article class="box media">
+				<div class="media-content">
+					<div class="content">
+						<p>
+							<strong>Inspyro</strong><br>
+							{{ tw.tweet | safe }}<br>
+							<small>{{ tw.post_time }} </small>
+						</p>
+					</div>
+				</div>
+			</article>
+		{% endfor %}
+		<!-- ここまで -->
+
+	</div>
+</main>
+{% endblock %}

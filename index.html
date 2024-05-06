@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block body %}
+<main class="columns">
+	<div class="submenu column is-fullwidth">
+		<aside class="box menu">
+			<form method="GET" action="/list">
+				<div class="buttons">
+					<button class="button is-info is-fullwidth" >新規作成</button>
+				</div>
+			</form>
+			<p class="menu-label">
+				アイデア一覧
+			</p>
+
+			<!---->
+			<ul class="menu-list">
+				
+				{% for idea in ideas %}
+				<li><a href="/{{ idea.id }}">{{ idea.name }}</a></li>
+				{% endfor %}
+
+			</ul>
+			<!---->
+
+		</aside>
+	</div>
+</main>
+{% endblock %}

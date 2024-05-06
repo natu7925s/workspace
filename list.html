@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="jp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer ></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+		<style>
+			main {
+			background-color: #eeeeee;
+			}
+		</style>
+		<title>Inspyro</title>
+	</head>
+	<body>
+		<!-- 記述場所③ -->
+		<div class="hero is-info is-bold">
+			<div class="hero-body">
+				<div class="container">
+				<h1 class="title"><a href="/">SNS風のアイデアまとめるやつ</a></h1>
+				<h2 class="subtitle">@Inspyro</h2>
+				</div>
+			</div>
+		</div>
+		<!-- 記述場所④ -->
+		<section class="level">
+		</section>
+
+
+		<div class="column">
+			<article class="media">
+				<div class="media-content">
+					<div class="content">
+						<form  method="POST" action="/list">
+							<div class="field">
+								<label class="label">Name</label>
+								<p class="control">
+									<input name="ideaname" class="input is-normal" type="text" placeholder="Normal input">
+								</p>
+							</div>
+							<nav class="level">
+								<div class="level-left">
+									<div class="level-item">
+										<button type="submit" class="button is-info is-fullwidth">Submit</button>	
+									</div>
+								</div>
+							</nav>
+						</form>
+					</div>
+				</div>
+			</article>
+			<article class="media">
+				<table class="table is-striped is-hoverable is-fullwidth">
+					<thead>
+						<tr>
+							<th>アイデア名</th>
+							<th>作成日</th>
+							<th>削除</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						<!-- アイデアリスト -->
+						{% for idea in ideas %}
+						<tr>
+							<td>{{ idea.name }}</td>
+							<td>{{ idea.created_date }}</td>
+							<td>
+								<form  method="POST" action="/del/{{ idea.id }}">
+									<button class="button is-danger">削除</button>
+								</form>
+							</td>
+						</tr>
+						{% endfor %}
+						<!-- -->
+
+					</tbody>
+				</table>
+			</article>
+		</div>
+
+
+
+
+	</body>
+</html>
