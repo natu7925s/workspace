@@ -13,12 +13,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///memobuddy.db'
 db = SQLAlchemy(app)
 dt_jst = datetime.timezone(datetime.timedelta(hours=9), 'JST')
 
-
-
-@app.route('/admin', methods=["GET"])
-def admin():
-	return render_template("admin.html")
-
 @app.route("/", methods=["GET", "POST"])
 def index():
 	return render_template("index.html")
