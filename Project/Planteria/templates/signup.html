@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="form-div">
+	<div class="paper">
+		<h3>ユーザー登録</h3>
+		<form method="GET" action="/list">
+			<div class="form-input-1">
+				<label for="paperInputs1">User name</label>
+				<input type="text" placeholder="Nice input" id="paperInputs1">
+			</div>
+			<br>
+			<div class="form-input-2">
+				<label for="paperInputs1">password</label>
+				<input type="password" placeholder="password" id="paperInputs1">
+			</div>
+			<br>
+			<div class="form-input-3">
+				<label for="paperInputs1">password (re) </label>
+				<input type="password" placeholder="password" id="paperInputs1">
+			</div>
+			<br>
+			<div class="form-button">
+				<button class="btn-secondary">Success</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}
